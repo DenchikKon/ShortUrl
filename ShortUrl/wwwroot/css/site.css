@@ -1,0 +1,75 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: indigo;
+    color: white;
+}
+
+.urlAddBox {
+}
+
+.generateInput {
+    border-color: darkblue;
+    border-radius: 5px;
+    color: white;
+    width: 500px;
+    background-color: indigo;
+}
+
+.addInput {
+    width: 100%;
+}
+
+.generateSubmit {
+    width: 200px;
+    height: 50px;
+    margin: 5px;
+    border-color: darkblue;
+    border-radius: 8px;
+    color: white;
+    background-color: indigo;
+}
+
+.EditDelbtn {
+    width: 100px;
+    height: 35px;
+    margin: 5px;
+    border-color: darkblue;
+    border-radius: 8px;
+    color: white;
+    background-color: indigo;
+}
+
+.urlBox {
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    background-color: blueviolet;
+}
+
+.urlEditBox {
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+}
+
+    .urlEditBox label {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }

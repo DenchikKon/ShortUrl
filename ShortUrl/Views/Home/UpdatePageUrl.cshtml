@@ -1,0 +1,42 @@
+﻿@model UrlModel
+
+@{
+    ViewData["Title"] = "Обновить данные";
+}
+<div>
+    <h1 style="text-align: center">Обновление данных</h1>
+
+    <hr />
+    <div>
+        <div class="urlEditBox">
+            <form asp-action="UpdateUrl" asp-controller="Home" asp-route-id="@Model.Id">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="LongUrl" class="control-label">Ссылка: </label>
+                    <input class="generateInput addInput" asp-for="LongUrl" class="form-control" />
+                    <span asp-validation-for="LongUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ShortUrl" class="control-label">Сокращённая ссылка:</label>
+                    <input maxlength="8" class="generateInput addInput" asp-for="ShortUrl" class="form-control" />
+                    <span asp-validation-for="ShortUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CountOfClick" class="control-label">Количество переходов</label>
+                    <input class="generateInput addInput" asp-for="CountOfClick" class="form-control" />
+                    <span asp-validation-for="CountOfClick" class="text-danger"></span>
+                </div>
+                <div style="margin-top: 15px">
+                    <input type="submit" class="generateSubmit" value="Сохранить" />
+                </div>
+            </form>
+            <a style="color: white; text-align:center" asp-action="Index">Вернуться</a>
+        </div>
+    </div>
+
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

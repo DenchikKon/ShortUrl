@@ -1,0 +1,36 @@
+﻿@model MainPageViewModel
+@{
+    ViewData["Title"] = "Сокращенные ссылки";
+}
+
+<div class="text-center">
+    <h1 style="margin-top: 30px" class="display-4">Сокращатель ссылок</h1>
+    <form style="margin-top: 30px" asp-controller="Home" asp-action="Index" method="post">
+        <div class="urlAddBox">
+            <label style="margin-right:5px" asp-for="@Model.addUrlsModel.LongUrl">Укажите ссылку:</label>
+            <input class="generateInput" asp-for="@Model.addUrlsModel.LongUrl" />
+        </div>
+        <span style="display: block;height:40px;" asp-validation-for="@Model.addUrlsModel.LongUrl"></span>
+        <input class="generateSubmit" type="submit" value="Cгенерировать" />
+    </form>
+    <hr />
+    <div>
+        @foreach (var item in Model.urlModels)
+        {
+            <div class="urlBox">
+                <p style="font-size= 20px;">Сокращённая ссылка: @item.ShortUrl.ToString()</p>
+                <p style="font-size= 16px;">Полная ссылка: @item.LongUrl</p>
+                <p style="font-size= 14px;">Дата создания: @item.dateCreated.ToShortDateString()</p>
+                <p style="font-size= 14px;">Количество переходов: @item.CountOfClick</p>
+                <div style="display: flex">
+                    <form asp-action="DeleteUrl" asp-route-id="@item.Id" asp-controller="Home">
+                        <input class="EditDelbtn" type="submit" value="Удалить" />
+                    </form>
+                    <form asp-action="UpdatePageUrl" asp-route-id="@item.Id" asp-controller="Home">
+                        <input class="EditDelbtn" type="submit" value="Изменить" />
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+</div>
